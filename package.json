@@ -5,9 +5,9 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js",
+    "dev": "node server.js",
     "client": "cd event-management-system && npm start",
-    "dev": "concurrently -n 'server,client' -c 'yellow,green' \"node server.js\" \"npm run client\""
+    "start": "concurrently -n 'server,client' -c 'yellow,green' \"node server.js\" \"npm run client\""
   },
   "author": "Abhishek",
   "license": "ISC",
