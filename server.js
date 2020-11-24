@@ -8,9 +8,9 @@ const PORT = process.env.PORT || 8080;
 
 const routes = require('./routes/api');
 
-const MONGODB_URI = 'mongodb+srv://dbevent:dlF0etwm4tZDHV7T@cluster0.0ehgr.mongodb.net/eventdb?retryWrites=true&w=majority';
+// const MONGODB_URI = 'mongodb+srv://dbevent:dlF0etwm4tZDHV7T@cluster0.0ehgr.mongodb.net/eventdb?retryWrites=true&w=majority';
 
-mongoose.connect(MONGODB_URI, {
+mongoose.connect(process.env.MONGODB_URI, {
     useNewUrlParser: true, useUnifiedTopology: true
 });
 
@@ -20,6 +20,10 @@ mongoose.connection.on('connected', () => {
 
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
+
+if(process.env.NODE_ENV === "production"){
+    app.use(express.static('event-management-system/build'));
+}
 
 // HTTP request logger
 app.use(morgan('tiny'));
