@@ -8,8 +8,6 @@ const PORT = process.env.PORT || 8080;
 
 const routes = require('./routes/api');
 
-// const MONGODB_URI = 'mongodb+srv://dbevent:dlF0etwm4tZDHV7T@cluster0.0ehgr.mongodb.net/eventdb?retryWrites=true&w=majority';
-
 mongoose.connect(process.env.MONGODB_URI, {
     useNewUrlParser: true, useUnifiedTopology: true
 });
